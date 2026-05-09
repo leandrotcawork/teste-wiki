@@ -1,0 +1,42 @@
+# Framework Validator
+
+## O que é
+
+O **Validator** é um agente de validação de framework. Ele atua como um ambiente de testes para verificar o funcionamento dos sistemas de memória, notas, lembretes e wiki.
+
+## Componentes
+
+### 1. Memória (`memory_set`, `memory_get`, `memory_list_facts`, `memory_delete`)
+Armazena fatos **permanentes** sobre o usuário:
+- Nome, família, preferências, datas importantes
+- Usa chave em snake_case (ex: `nome`, `cor_favorita`)
+- Ideal para informações atômicas que definem quem o usuário é
+
+### 2. Notas (`add_note`, `list_notes`, `search_notes`)
+- Anotações efêmeras: listas, lembretes curtos, rascunhos
+- Não devem ser usadas para informações pessoais permanentes
+- Buscáveis por substring com `search_notes`
+
+### 3. Lembretes (`set_reminder`, `list_reminders`, `cancel_reminder`)
+- Agendamento com sintaxe cron padrão (5 campos: m h dom mon dow)
+- Confirmação em linguagem natural para o usuário
+
+### 4. Wiki (`wiki_write`, `wiki_read`, `wiki_search`, `wiki_list`, `wiki_append_log`)
+- Conteúdo narrativo, projetos, resumos, logs de pesquisa
+- Usado quando a informação tem mais de uma frase ou precisa de estrutura
+
+### 5. Blocos (`block_get`, `block_set`, `block_list`)
+- Armazenamento de blocos nomeados de conteúdo
+
+## Regras de Uso
+
+- Informações sobre **quem o usuário é** → sempre usar `memory_set`
+- Notas são para **tarefas**, não para identidade
+- Wiki é para **conteúdo narrativo estruturado**
+
+## Histórico de Testes
+
+### 09/05/2026
+- Teste de notas: "teste do pacote de notas no validator" — OK
+- Teste de memória: salvamento do nome "Leandro" — OK (corrigido de nota para memory_set)
+- Teste de lembretes: "reunião com time" amanhã às 9h — OK

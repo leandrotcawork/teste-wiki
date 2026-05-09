@@ -9,3 +9,4 @@ reviewed: false
 
 - [teste-wiki](teste-wiki-2.md) - Página de teste criada para validação do framework de wiki (2026-05-09)
 - [teste-wiki](teste-wiki-2.md) - Página de teste criada para validação do framework de wiki (2026-05-09)
+- [teste-wiki](teste-wiki.md) - Página de teste para validação do framework (2026-05-09)
